@@ -1,0 +1,5 @@
+# Classic
+node_modules/
+
+# Schema
+tests/schemas.ts
