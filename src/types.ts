@@ -7,6 +7,11 @@ export type Entity = {
 
 export type Character = Entity & {
     country: string;
-    profession: string;
+    group: string;
     type: 'character';
+}
+
+// Post game value
+export type Location = Entity & {
+    position: {x: number, y: number };
 }

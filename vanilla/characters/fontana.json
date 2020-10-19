@@ -1,7 +1,7 @@
 {
-    "components": [ "one-armed" ],
+    "components": [ "leader", "military", "one-armed" ],
     "country": "Argentina",
-    "description": "Primer gobernador de Chubut",
-    "name": "Luis Jorge Fontana",
-    "profession": "explorer"
+    "description": "Primer gobernador de Chubut, Líder de los rifleros",
+    "group": "riflemen",
+    "name": "Luis Jorge Fontana"
 }

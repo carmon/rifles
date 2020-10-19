@@ -1,22 +1,10 @@
+import * as config from 'dos-config';
 import { readdir, readFile } from 'fs';
 import { parseSchema, ValidationFn } from 'mural-schema';
+import createLogger from './log';
 import { Character, Entity } from './schemas';
 
-const log = (...s: any[]) => {
-    const r = s.reduce((p, c) => {
-        if (typeof(c) === 'object') {
-            return `${p} ${JSON.stringify(c)}`;
-        }
-        return `${p} ${c}`;
-    }, '');
-    console.log(`index.ts :: ${r}`);
-};
-
-const ROOT_DIR = 'vanilla';
-const OBJECT_TYPES = [
-    'characters',
-    'locations'
-];
+const log = createLogger('VALIDATOR');
 
 type Validator = {
     id: string;
@@ -34,8 +22,12 @@ const entity: Validator = {
     parse: parseSchema(Entity)
 };
 
-OBJECT_TYPES.forEach(typeDir => {
-    const path = `./${ROOT_DIR}/${typeDir}/`; 
+// Mod forced mode
+const args = process.argv.filter(a => a.indexOf('/') === -1);
+const rootDir = args.length ? args[0] : config.rootDir;
+
+config.categories.forEach(typeDir => {
+    const path = `./${rootDir}/${typeDir}/`; 
     readdir(path, { encoding: 'utf-8' }, (err, filenames) => {
         if (err) {
             log(err.message); 

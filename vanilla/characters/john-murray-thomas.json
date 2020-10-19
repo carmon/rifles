@@ -1,0 +1,7 @@
+{
+    "components": [ "merchant", "explorer", "photographer", "gold-digger" ],
+    "country": "Gales",
+    "description": "Emprendedor y aventurero galés.",
+    "group": "riflemen",
+    "name": "John Murray Thomas"
+}

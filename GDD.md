@@ -21,12 +21,20 @@ Expedition facts
 - From October 14th 1885 to February 1th 1886, 111 days (3 months and 19 days)
 - 29 explorers formed the pack: 19 welsh, 7 argentines, 2 germans, and 1 northamerican
 - Some stories say there was 1 unidentified explorer
-- Distance travelled is around 5000km
+- Distance travelled is around 5000km (they made an average of 45km a day)
 
 ### Roguelike
 Bring everything in. Chubut desert can go from dinasours (now alive), to desertors from the Conquista del Desierto, to gualichos, to starvation, to luz mala, to aliens. Some better defined contrains:
 - Rogue-like AF, replayability, sudden deaths and retry, long term achievements, constant feature unlocking.
 - Difficulty must skyrocket here, the first mode is a demo, a tutorial, this is the real challenging game.
+
+## Game Design Annotations
+Player will have full control of Rifleros group, and will move them as a caravan of 29 explorers. Each day will start with a complete *moving phase*, on
+which the user will have full control on the place of stopping (also _events could appear_ upon advancing on the trail). On *historical mode*, some rifleros
+may alert the player on distancing from the _original path_. When making stops, the game enters in *stopped phase*, where player can rest, consume rations, plan expeditions to nearby areas (check design action list).
+
+### Research
+- Original path taken specifications
 
 ### Glossary
 - Colonia 17 de Octubre
