@@ -31,12 +31,15 @@ Bring everything in. Chubut desert can go from dinasours (now alive), to deserto
 ## Game Design Annotations
 Player will have full control of Rifleros group, and will move them as a caravan of 29 explorers. Each day will start with a complete *moving phase*, on
 which the user will have full control on the place of stopping (also _events could appear_ upon advancing on the trail). On *historical mode*, some rifleros
-may alert the player on distancing from the _original path_. When making stops, the game enters in *stopped phase*, where player can rest, consume rations, plan expeditions to nearby areas (check design action list).
+may alert the player on distancing from the _original path_. When making stops, the game enters in *stopped phase*, where player can rest, consume rations, plan expeditions to nearby areas (check camp action list file).
 
-### Research
+## Tech Tools
+Game has a schema validator. Future plans: JSON CRM and dialogue app.
+
+## Research
 - Original path taken specifications
 
-### Glossary
+## Glossary
 - Colonia 17 de Octubre
 - Conquista del Desierto
 - Gualichos

@@ -1,8 +1,7 @@
 {
-  "name": "rifles-data",
+  "name": "rifles-validator",
   "version": "1.0.0",
   "description": "rifles game assets",
-  "main": "tests/index.ts",
   "scripts": {
     "gen": "node ./node_modules/mural-schema/from-ts -e \"src/types.ts\" > \"src/schemas.ts\"",
     "create": "./node_modules/.bin/ts-node ./src/create.ts",

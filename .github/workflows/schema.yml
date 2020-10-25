@@ -1,0 +1,50 @@
+name: Vanilla assets schema check 
+
+on: [push]
+
+jobs:
+  test_vanilla:
+    defaults:
+      run:
+        working-directory: schema
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run gen
+    - run: npm test
+      env:
+        CI: true
+
+  test_mods:
+    defaults:
+      run:
+        working-directory: schema
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run gen
+    - run: npm test mods
+      env:
+        CI: true
