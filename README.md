@@ -1,24 +1,15 @@
-Los rifleros de Chubut/Rocky Trip data files
-============================================
+Los rifleros de Chubut repository
+=================================
 
-The purpose of this repository is to serialize all info contained in the game.
+This is the repo of a working title game based on [Los rifleros de Chubut anabasis](https://es.wikipedia.org/wiki/Rifleros_del_Chubut) 
+to inner Patagonia in 1886. Game will try to be an exploration game with heavy enphasis on dialogue, on the vein of Oregon Trail and 
+Papers, please. All data files of the game will be JSONs, each of this data/tools are necesary for the final game. 
 
-### Folder Structure
+### Folders Structure
 
-*./templates* is the folder for JSON assets templates (divided by category)
-*./vanilla* is the JSON assets folder for vanilla version of the game ("""historically accurate""")
-*./mods* is the JSON assets folder for more videogamey modifications (unlocked mode after user beats the game for the first time)
+*./crm* is a minimal CRM for editing game JSONs assets [WIP]
+*./data* is where game data is stored
+*./dialogue* is an experimental dialogue system for the game [WIP]
+*./gdd* is where game design documents rest
+*./schema* is a schema validator and rudimentary asset creator for game assets 
 
-### File Structure
-
-File will have a subfolder for each category, to be clearer to find. Every file will be a JSON, with
-the inner attributes of each entity values. A schema validator (mural-schema) is runned during tests to
-confirm every information is correct.
-
-### Code Structure
-
-All code will go into src folder, these are the more important files:
-
-- types.ts: types for every entity in the game, from these file schema are created.
-- validate.ts: schema validator, will run as `npm run test` (if tests fail info is wrong).
-- create.ts: JSON file creator, grabs a category template and saves a into a named JSON in category folder.

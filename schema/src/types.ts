@@ -8,6 +8,7 @@ export type Entity = {
 export type Character = Entity & {
     country: string;
     group: string;
+    nickname?: string;
     type: 'character';
 }
 

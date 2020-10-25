@@ -27,7 +27,7 @@ const args = process.argv.filter(a => a.indexOf('/') === -1);
 const rootDir = args.length ? args[0] : config.rootDir;
 
 config.categories.forEach(typeDir => {
-    const path = `./${rootDir}/${typeDir}/`; 
+    const path = `../data/${rootDir}/${typeDir}/`; 
     readdir(path, { encoding: 'utf-8' }, (err, filenames) => {
         if (err) {
             log(err.message); 
