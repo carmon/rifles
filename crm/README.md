@@ -7,3 +7,8 @@ Some goals stuff thinked for this app:
     - Grabs schema and render input in pure HTML form
     - Category should be a different page/tab
     - Filename selector, if none selected save button should be a save-to-file browser form
+
+CRM Project
+===========
+
+I decided to advance with a little nodejs app, based on TS.

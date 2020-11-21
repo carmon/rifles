@@ -1,0 +1,18 @@
+{
+    "name": "rifles-crm",
+    "version": "1.0.0",
+    "description": "rifles CRM for editing game data JSONs",
+    "scripts": {
+        "build": "./node_modules/.bin/tsc --project tsconfig.json",
+        "clean": "rm -rf ./dist",
+        "start": "npx http-server"
+    },
+    "author": "carmon",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "browser-nativefs": "^0.11.0"
+    },
+    "devDependencies": {
+        "typescript": "^4.1.2"
+    }
+}

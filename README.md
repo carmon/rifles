@@ -7,9 +7,9 @@ Papers, please. All data files of the game will be JSONs, each of this data/tool
 
 ### Folders Structure
 
-*./crm* is a minimal CRM for editing game JSONs assets [WIP]
-*./data* is where game data is stored
-*./dialogue* is an experimental dialogue system for the game [WIP]
-*./gdd* is where game design documents rest
-*./schema* is a schema validator and rudimentary asset creator for game assets 
+- **./crm** is a minimal CRM for editing game JSONs assets [WIP]
+- **./data** is where game data is stored
+- **./dialogue** is an experimental dialogue system for the game [WIP]
+- **./gdd** is where game design documents rest
+- **./schema** is a schema validator and rudimentary asset creator for game assets 
 

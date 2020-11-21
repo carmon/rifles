@@ -3,3 +3,6 @@ node_modules/
 
 # Schema
 schemas.ts
+
+# Build directories
+dist/
