@@ -34,7 +34,7 @@ which the user will have full control on the place of stopping (also _events cou
 may alert the player on distancing from the _original path_. When making stops, the game enters in *stopped phase*, where player can rest, consume rations, plan expeditions to nearby areas (check camp action list file).
 
 ## Tech Tools
-Game has a schema validator. Future plans: JSON CRM and dialogue app.
+Game has a schema validator. JSON CMS. Future plans: dialogue app.
 
 ## Research
 - Original path taken specifications
