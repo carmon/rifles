@@ -1,9 +1,5 @@
 import { fileOpen , fileSave } from 'https://unpkg.com/browser-nativefs';
 
-export const myFunction = (f: any) => {
-  console.log('Call myFunction', f);
-};
-
 const rootEl = document.getElementById("root");
 
 const title = document.createElement('h1');
@@ -27,6 +23,14 @@ if (window.isSecureContext) {
   button.addEventListener('click', async _ => {
     button.disabled = true;
     button.textContent = 'Loading...';
+    if (document.forms[0]) {
+      rootEl.removeChild(document.forms[0]);
+    }
+    const oldPath = document.getElementById('path');
+    if (oldPath) {
+      rootEl.removeChild(oldPath);
+    }
+
     const file = await fileOpen({
       mimeTypes: ['application/json'],
       extensions: ['.json'],
@@ -35,6 +39,7 @@ if (window.isSecureContext) {
 
     const path = document.createElement('input');
     path.disabled = true;
+    path.id = 'path';
     path.value = file.name;
     rootEl.appendChild(path);
 
