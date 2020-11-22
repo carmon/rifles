@@ -6,16 +6,23 @@ const title = document.createElement('h1');
 title.textContent = "Rifleros JSONs minimal CMS";
 rootEl.appendChild(title);
 
-const help = document.createElement('p');
+const help = document.createElement('div');
 help.textContent = 'Load a JSON data file to edit it\'s attributes. Check example file '
-const example = 'https://raw.githubusercontent.com/carmon/rifles/main/data/vanilla/characters/fontana.json';
 const link = document.createElement('a');
-link.href = example;
+link.href = 'https://raw.githubusercontent.com/carmon/rifles/main/data/vanilla/characters/fontana.json';
 link.target = '_blank';
 link.textContent = 'here';
 help.appendChild(link);
-
 rootEl.appendChild(help);
+
+const source = document.createElement('span');
+source.textContent = ', source code ';
+const repo = document.createElement('a');
+repo.href = 'https://github.com/carmon/rifles/tree/main/cms';
+repo.target = '_blank';
+repo.textContent = 'here.';
+source.appendChild(repo);
+help.appendChild(source);
 
 if (window.isSecureContext) {
   const button = document.createElement('button');

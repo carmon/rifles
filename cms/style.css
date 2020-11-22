@@ -1,3 +1,7 @@
+#root div {
+    margin-bottom: .5em;
+} 
+
 #root form {
     margin-top: 1em;
 }
