@@ -21,20 +21,28 @@ if (vars.length < 2) {
 const [category, filename] = vars;
 
 import * as config from 'dos-config';
+import * as path from 'path';
 import { readFile, writeFile } from 'fs';
 import createLogger from './log';
 
 const log = createLogger('CREATOR');
 
-readFile(`./templates/${category}.json`, (err, file) => {
+const dataDir = path.join(`../${config.rootDir}`); 
+
+readFile(`${dataDir}/templates/${category}.json`, (err, file) => {
     if (err) 
         return error(err.message);
 
     const str = file.toString();
     const obj = { ...JSON.parse(str), name: filename, type: category };
-    
+
     writeFile(
-        `./${config.rootDir}/${category}s/${filename}.json`, 
+        `${dataDir}/${config.writeDir}/${category}s/${filename}.json`, 
         JSON.stringify(obj, null, "\t"), 
-        () => { log('File written.') });
+        (err) => { 
+            if (!err) 
+                log('File written.')
+            else
+                log(`ERROR: ${err}`)
+        });
 });

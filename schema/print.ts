@@ -1,0 +1,1 @@
+console.log(process.env.CONFIG_PATH);

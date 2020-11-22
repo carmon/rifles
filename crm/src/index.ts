@@ -1,4 +1,4 @@
-// import { fileOpen } from 'browser-nativefs';
+import { fileOpen } from 'https://unpkg.com/browser-nativefs';
 
 const rootEl = document.getElementById("root");
 if (window.isSecureContext) {
@@ -16,8 +16,8 @@ if (window.isSecureContext) {
       description: 'Image files',
     };
     console.log(ev);
-    // const res = await fileOpen(options);
-    console.log(options);
+    const res = await fileOpen(options);
+    console.log(res);
   });
   button.textContent = 'Open file';
   
