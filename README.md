@@ -12,4 +12,3 @@ Papers, please. All data files of the game will be JSONs, each of this data/tool
 - **./dialogue** is an experimental dialogue system for the game [WIP]
 - **./gdd** is where game design documents rest
 - **./schema** is a schema validator and rudimentary asset creator for game assets 
-

@@ -1,27 +1,84 @@
-import { fileOpen } from 'https://unpkg.com/browser-nativefs';
+import { fileOpen , fileSave } from 'https://unpkg.com/browser-nativefs';
+
+export const myFunction = (f: any) => {
+  console.log('Call myFunction', f);
+};
 
 const rootEl = document.getElementById("root");
+
+const title = document.createElement('h1');
+title.textContent = "Rifleros JSONs minimal CMS";
+rootEl.appendChild(title);
+
+const help = document.createElement('p');
+help.textContent = 'Load a JSON data file to edit it\'s attributes. Check example file '
+const example = 'https://raw.githubusercontent.com/carmon/rifles/main/data/vanilla/characters/fontana.json';
+const link = document.createElement('a');
+link.href = example;
+link.target = '_blank';
+link.textContent = 'here';
+help.appendChild(link);
+
+rootEl.appendChild(help);
+
 if (window.isSecureContext) {
   const button = document.createElement('button');
-  button.addEventListener('click', async ev => {
-    // Options are optional.
-    const options = {
-      // List of allowed MIME types, defaults to `*/*`.
-      mimeTypes: ['image/*'],
-      // List of allowed file extensions (with leading '.'), defaults to `''`.
-      extensions: ['.png', '.jpg', '.jpeg', '.webp'],
-      // Set to `true` for allowing multiple files, defaults to `false`.
-      multiple: true,
-      // Textual description for file dialog , defaults to `''`.
-      description: 'Image files',
-    };
-    console.log(ev);
-    const res = await fileOpen(options);
-    console.log(res);
-  });
-  button.textContent = 'Open file';
-  
-  rootEl.appendChild(button);
-}    
+  button.textContent = 'Open JSON';
+  button.addEventListener('click', async _ => {
+    button.disabled = true;
+    button.textContent = 'Loading...';
+    const file = await fileOpen({
+      mimeTypes: ['application/json'],
+      extensions: ['.json'],
+      description: 'JSON data files',
+    });
 
-console.log('Compiled JS has loaded!');
+    const path = document.createElement('input');
+    path.disabled = true;
+    path.value = file.name;
+    rootEl.appendChild(path);
+
+    const json = await file.text();
+    const obj = JSON.parse(json);
+    const keys = Object.keys(obj);
+    button.disabled = false;
+    button.textContent = 'Open JSON';
+
+    // Form
+    const form = document.createElement('form');
+    form.onsubmit = async (ev) => {
+      ev.preventDefault();
+      const res = keys.reduce((prev, curr) => ({
+        ...prev,
+        [curr]: form[curr].value,
+      }), {});
+      const blob = new Blob([JSON.stringify(res, null, 2)], {type : 'application/json'});
+      await fileSave(blob, {
+        fileName: file.name,
+        extensions: ['.json']
+      })
+    };
+    form.name = 'form';
+    keys.forEach(k => {
+      const label = document.createElement('label');
+      label.htmlFor = k;
+      label.textContent = `${k}: `;
+      form.appendChild(label);
+      const input = document.createElement('input');
+      input.id = k;
+      input.name = k;
+      input.type = 'text';
+      input.value = obj[k];
+      form.appendChild(input);
+      form.appendChild(document.createElement('br'));
+    });
+    const save = document.createElement('button');
+    save.textContent = 'Save changes';
+    save.type = 'submit';
+    form.appendChild(save);
+    rootEl.appendChild(form);
+  });
+  rootEl.appendChild(button);
+}
+
+console.log('Compiled JS loaded!');

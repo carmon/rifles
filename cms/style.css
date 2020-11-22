@@ -1,0 +1,7 @@
+#root form {
+    margin-top: 1em;
+}
+
+#root form label, #root form input, #root form button {
+    margin-top: .5em;
+}
