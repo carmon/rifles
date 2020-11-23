@@ -2,7 +2,6 @@ Los rifleros de Chubut (a.k.a Rocky Trip) Game Design Document
 ==============================================================
 
 ## Main goals
-
 - 2D exploration rogue-like videogame
 - Heavy and meaninfull emphasis on dialogue
 - Tells the story about Chubut's riflemen, taking as much historical detail as possible
@@ -15,7 +14,7 @@ Los rifleros de Chubut (a.k.a Rocky Trip) Game Design Document
 ## Campaign Designs
 
 ### Historical
-Historical accuracy is imposible. Stick to the _known_ facts. Game can twist here and there where there is a space. The difficulty of the historical approach is to make players follow the historical route and game characters take the decisions of the historical characters they represent. Some guidelines:
+Historical accuracy is imposible. Stick to the **known** facts. Game can twist here and there where there is a space. The difficulty of the historical approach is to make players follow the historical route and game characters take the decisions of the historical characters they represent. Some guidelines:
 
 Expedition facts
 - From October 14th 1885 to February 1th 1886, 111 days (3 months and 19 days)
@@ -29,15 +28,14 @@ Bring everything in. Chubut desert can go from dinasours (now alive), to deserto
 - Difficulty must skyrocket here, the first mode is a demo, a tutorial, this is the real challenging game.
 
 ## Game Design Annotations
-Player will have full control of Rifleros group, and will move them as a caravan of 29 explorers. Each day will start with a complete *moving phase*, on
-which the user will have full control on the place of stopping (also _events could appear_ upon advancing on the trail). On *historical mode*, some rifleros
-may alert the player on distancing from the _original path_. When making stops, the game enters in *stopped phase*, where player can rest, consume rations, plan expeditions to nearby areas (check camp action list file).
+Player will have full control of Rifleros group, and will move them as a caravan of 29 explorers. Each day will start with a complete **moving phase**, on which the user will have full control on the place of stopping (also _events could appear_ upon advancing on the trail). On **historical mode**, some rifleros may alert the player on distancing from the **original path**. When making stops, the game enters in **stopped phase**, where player can rest, consume rations, plan expeditions to nearby areas (check camp action list file).
 
 ## Tech Tools
-Game has a schema validator. JSON CMS. Future plans: dialogue app.
+Game has a schema validator. JSON Editor. Future plans: encounter app.
 
 ## Research
 - Original path taken specifications
+- Define groups
 
 ## Glossary
 - Colonia 17 de Octubre

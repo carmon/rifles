@@ -1,28 +1,17 @@
 import { fileOpen , fileSave } from 'https://unpkg.com/browser-nativefs';
+import { capitalize } from './utils.js';
 
 const rootEl = document.getElementById("root");
 
 const title = document.createElement('h1');
-title.textContent = "Rifleros JSONs minimal CMS";
+title.textContent = "Rifleros JSON Editor";
 rootEl.appendChild(title);
 
-const help = document.createElement('div');
-help.textContent = 'Load a JSON data file to edit it\'s attributes. Check example file '
-const link = document.createElement('a');
-link.href = 'https://raw.githubusercontent.com/carmon/rifles/main/data/vanilla/characters/fontana.json';
-link.target = '_blank';
-link.textContent = 'here';
-help.appendChild(link);
-rootEl.appendChild(help);
-
-const source = document.createElement('span');
-source.textContent = ', source code ';
-const repo = document.createElement('a');
-repo.href = 'https://github.com/carmon/rifles/tree/main/cms';
-repo.target = '_blank';
-repo.textContent = 'here.';
-source.appendChild(repo);
-help.appendChild(source);
+const description = document.createElement('p');
+description.innerHTML = `Load a JSON data file to edit it\'s attributes. 
+Check example file <a href="https://raw.githubusercontent.com/carmon/rifles/main/data/vanilla/characters/fontana.json" target="_blank">here</a>,
+source code <a href="https://github.com/carmon/rifles/tree/main/cms" target="_blank">here</a>.`;
+rootEl.appendChild(description);
 
 if (window.isSecureContext) {
   const button = document.createElement('button');
@@ -60,6 +49,7 @@ if (window.isSecureContext) {
     const form = document.createElement('form');
     form.onsubmit = async (ev) => {
       ev.preventDefault();
+      console.log(form.getElementsByTagName('input'));
       const res = keys.reduce((prev, curr) => ({
         ...prev,
         [curr]: form[curr].value,
@@ -74,15 +64,14 @@ if (window.isSecureContext) {
     keys.forEach(k => {
       const label = document.createElement('label');
       label.htmlFor = k;
-      label.textContent = `${k}: `;
+      label.textContent = capitalize(k);
       form.appendChild(label);
       const input = document.createElement('input');
       input.id = k;
       input.name = k;
       input.type = 'text';
       input.value = obj[k];
-      form.appendChild(input);
-      form.appendChild(document.createElement('br'));
+      label.appendChild(input);
     });
     const save = document.createElement('button');
     save.textContent = 'Save changes';
