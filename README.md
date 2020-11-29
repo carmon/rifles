@@ -7,8 +7,8 @@ Papers, please. All data files of the game will be JSONs, each of this data/tool
 
 ### Folders Structure
 
-- **./cms** is a minimal CMS for editing game JSONs assets (Early version), check internal [README.md](cms/README.md)
 - **./data** is where game data is stored
 - **./dialogue** is an experimental dialogue system for the game [WIP]
+- **./jmod** is a minimal webapp for editing game JSONs assets, check internal [README.md](jmod/README.md)
 - **./gdd** is where game design documents rest
 - **./schema** is a schema validator and rudimentary asset creator for game assets 
