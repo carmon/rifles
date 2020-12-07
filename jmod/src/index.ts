@@ -1,4 +1,5 @@
 import { createButton, createInput, createLabel } from './dom.js';
+import { RECURSION } from './examples.js';
 import { openFileLoader, saveToJSON } from './nativefs.js';
 
 const root = document.getElementById("root");
@@ -78,7 +79,31 @@ const addAttributesToForm = (obj: any, parent: HTMLElement) => (rootKey: string)
   parent.appendChild(label);
 };
 
-const nativefs = true;
+const createForm = (json: string, fileName: string) => {
+  const form = document.createElement('form');
+  form.onsubmit = createHandleSubmit(fileName, form);
+  form.name = 'form';
+
+  const obj = JSON.parse(json);
+  Object.keys(obj).forEach(addAttributesToForm(obj, form));
+
+  form.appendChild(createButton({
+    text: 'Save changes',
+    type: 'submit',
+  }));
+
+  root.appendChild(form);
+};
+
+const createTextArea = (json: string) => {
+  const textArea = document.createElement('textarea');
+  textArea.value = json;
+  textArea.disabled = true;
+  textArea.readOnly = true;
+  root.appendChild(textArea);
+}
+
+const nativefs = false;
 if (nativefs && window.isSecureContext) {
   const button = createButton({
     onclick: async _ => {
@@ -102,24 +127,14 @@ if (nativefs && window.isSecureContext) {
       button.disabled = false;
       button.textContent = 'Open JSON';
   
-      // Form
-      const form = document.createElement('form');
-      form.onsubmit = createHandleSubmit(fileName, form);
-      form.name = 'form';
-  
-      const obj = JSON.parse(json);
-      Object.keys(obj).forEach(addAttributesToForm(obj, form));
-  
-      form.appendChild(createButton({
-        text: 'Save changes',
-        type: 'submit',
-      }));
-  
-      root.appendChild(form);
+      createForm(json, fileName);
     },
     text: 'Open JSON',
   });
   root.appendChild(button);
+} else {
+  createForm(RECURSION, 'default.json');
+  createTextArea(RECURSION);
 }
 
 console.log('Compiled JS loaded!');
