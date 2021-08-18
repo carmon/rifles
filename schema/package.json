@@ -10,7 +10,7 @@
   "author": "carmon",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@types/node": "^14.11.8",
+    "@types/node": "^14.17.9",
     "dos-config": "^3.0.2",
     "mural-schema": "^3.3.2",
     "ts-node": "^9.0.0",

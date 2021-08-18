@@ -9,6 +9,6 @@ Papers, please. All data files of the game will be JSONs, each of this data/tool
 
 - **./data** is where game data is stored
 - **./dialogue** is an experimental dialogue system for the game [WIP]
-- **./jmod** is a minimal webapp for editing game JSONs assets, check internal [README.md](jmod/README.md)
+- **./jmod** is [a submodule repo](https://github.com/carmon/jmod) to edit the game JSONs files.
 - **./gdd** is where game design documents rest
 - **./schema** is a schema validator and rudimentary asset creator for game assets 
