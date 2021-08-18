@@ -24,11 +24,12 @@ const entity: Validator = {
 
 // Mod forced mode
 const args = process.argv.filter(a => a.indexOf('/') === -1);
-const rootDir = args.length ? args[0] : config.rootDir;
+const rootDir = `../${config.rootDir}${args.length ? `/${args[0]}`: ''}`;
 
+console.log(rootDir);
 config.categories.forEach(typeDir => {
-    const path = `../data/${rootDir}/${typeDir}/`; 
-    readdir(path, { encoding: 'utf-8' }, (err, filenames) => {
+    const path = `${rootDir}/${typeDir}/`; 
+    readdir(path, { encoding: 'utf-8' }, (err: Error, filenames: string[]) => {
         if (err) {
             log(err.message); 
             return;
