@@ -10,6 +10,7 @@ export type Character = Entity & {
     group: string;
     nickname?: string;
     type: 'character';
+    profession?: string;
 }
 
 // Post game value

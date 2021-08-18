@@ -1,0 +1,3 @@
+[submodule "jmod"]
+	path = jmod
+	url = git@github.com:carmon/jmod.git

@@ -4,8 +4,8 @@
   "description": "rifles game assets",
   "scripts": {
     "gen": "node ./node_modules/mural-schema/from-ts -e \"src/types.ts\" > \"src/schemas.ts\"",
-    "create": "CONFIG_PATH=$(pwd)/../config ./node_modules/.bin/ts-node ./src/create.ts",
-    "test": "CONFIG_PATH=$(pwd)/../config ./node_modules/.bin/ts-node ./src/validate.ts"
+    "create": "CONFIG_PATH=$(pwd)/../config ts-node ./src/create.ts",
+    "test": "CONFIG_PATH=$(pwd)/../config ts-node ./src/validate.ts"
   },
   "author": "carmon",
   "license": "UNLICENSED",

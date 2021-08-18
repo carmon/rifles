@@ -1,4 +1,5 @@
 {
-    "groups": ["riflemen", "natives"],
-    "countries": ["Alemania", "Argentina", "Chile", "Gales", "EEUU"]
+    "groups": ["riflemen", "natives", "allies"],
+    "countries": ["Alemania", "Argentina", "Chile", "Gales", "EEUU"],
+    "professions": ["explorer"]
 }
